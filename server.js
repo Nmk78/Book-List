@@ -23,7 +23,7 @@ app.use((req, res, next) => {
       next()
 })
 
-app.use('/api/books',route)
+app.use('/books',route)
 
 mongoose.connect(process.env.Mongo_URI)
       .then(()=>{

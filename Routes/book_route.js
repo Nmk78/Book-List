@@ -1,46 +1,21 @@
 const express = require("express");
 
+const {
+  create_book,
+  get_all_books,
+  get_a_book,
+} = require("../Controllers/book_controller");
+
 const router = express.Router();
-const Book = require("../Models/books_schema");
 
-router.get("/", (req, res) => {
-  res.json({ msg: "Hola this is all Books" });
-});
+//Get one
+router.get('/:id', get_a_book);
 
-//Get
-router.get("/:id", (req, res) => {
-  res.json({ msg: "Hola this is One Book" });
-});
+//Get all
+router.get("/", get_all_books);
 
 //Post
-router.post("/", async (req, res) => {
-  const {
-    title,
-    author,
-    translated,
-    translator,
-    got_by,
-    book_number,
-    category,
-  } = req.body;
-
-  try {
-    const book = await  Book.create({
-      title,
-      author,
-      translated,
-      translator,
-      got_by,
-      book_number,
-      category,
-    });
-    res.status(200).json(book)
-  } catch (err) {
-      res.status(400).json({msg: err.message})
-//     console.log(err);
-  }
-
-});
+router.post("/", create_book);
 
 //Delete
 router.get("/:id", (req, res) => {
