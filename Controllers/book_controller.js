@@ -54,11 +54,48 @@ const create_book = async (req, res) => {
 };
 
 // delete a book
+const delete_a_book = async (req, res) => {
+      const { id } = req.params;
+    
+          try {
+                if (mongoose.Types.ObjectId.isValid(id)) {
+                      const book = await Book.findOneAndDelete({ _id: id });
+                      if (book) {
+                        return res.status(200).json(book);
+                      } 
+                      res.status(404).json({ msg: "No book found" })
+                    }
+                    res.status(404).json({ msg: "No book found" });    
+          } catch (error) {
+                console.log(error)
+          }
+    
+    };
 
 //update a book
+const update_a_book = async (req, res) => {
+      const { id } = req.params;
+    
+          try {
+                if (mongoose.Types.ObjectId.isValid(id)) {
+                      const book = await Book.findOneAndUpdate({ _id: id });
+                      if (book) {
+                        return res.status(200).json(book);
+                      } 
+                      res.status(404).json({ msg: "No book found" })
+                    }
+                    res.status(404).json({ msg: "No book found" });    
+          } catch (error) {
+                console.log(error)
+          }
+    
+    };
+
+
 
 module.exports = {
   create_book,
   get_all_books,
   get_a_book,
+  delete_a_book,
 };
