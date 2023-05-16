@@ -8,9 +8,10 @@ import Book_detail from "./Components/Book_detail";
 import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
 import Book from "./Pages/Book";
-import Create from "./Pages/create";
+import Create from "./Pages/Create";
 import About from "./Pages/About";
 import axios from "axios";
+// import Delete from "./Components/delete";
 
 
 
@@ -25,25 +26,26 @@ function App() {
         .get("http://localhost:4000/books")
         .then((response) => {
           setBooks(response.data);
-          console.log(books);
+          // console.log(books);
         });
     };
 
     fetch_books();
-    console.log(books)
+    // console.log(books)
   }, []);
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter >
         <Nav />
-        <div className="pages bg-gray-200 ">
+        <div className="pages h-full py-5 bg-gray-200 ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/books" element={<Book books={books} />} />
             <Route path="/create" element={<Create />} />
             <Route path="/about" element={<About />} />
-            <Route path="/a" element={<Book_detail books={books} />} />
+            <Route path="/books/:id" element={<Book_detail books={books} />} />
+            {/* <Route path="/books/a" element={<Delete books={books} />} /> */}
           </Routes>
         </div>
         <Footer />
