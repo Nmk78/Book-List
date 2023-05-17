@@ -1,19 +1,19 @@
 import React from "react";
+import girl_reading_a_book from "../assets/girl-reading-book.svg";
 
-
-const Book = ({books}) => {
-console.log(books)
+const Book = ({ books }) => {
+  // console.log(books)
   return (
     <>
       <div className="w-full flex justify-around grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 p-3">
         {books &&
           books.map((book) => {
             return (
-              
               <a
-              href={`/books/${book._id}`}
-              key={book._id}
-               className="flex flex-col justify-center items-center ">
+                href={`/books/${book._id}`}
+                key={book._id}
+                className="flex flex-col justify-center items-center "
+              >
                 <div
                   className="
                   border-b-4
@@ -38,15 +38,28 @@ console.log(books)
                     {book.title}
                   </div>
                   <div className="text-center self-end">
-                    <p className="font-bold underline text-yellow-500">Author</p> {book.author}
+                    <p className="font-bold underline text-yellow-500">
+                      Author
+                    </p>{" "}
+                    {book.author}
                   </div>
                 </div>
                 {/* <p className="animate-pulse font-bold italic underline text-orange-600 text-xl ">Tap for details</p> */}
               </a>
             );
           })}
-
       </div>
+
+      {books && books.length === 0 && (
+        <div className="flex flex-col justify-center items-center h-full m-5">
+          <a href="/create" className="flex flex-col justify-center items-center " >
+            <img src={girl_reading_a_book} alt="" />
+            <p className="underline mx-auto italic text-orange-500 font-bold text-3xl ">
+              Create a new book?
+            </p>
+          </a>
+        </div>
+      )}
     </>
   );
 };

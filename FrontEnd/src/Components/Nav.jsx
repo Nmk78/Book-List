@@ -39,48 +39,48 @@ const Nav = () => {
         <button
           data-collapse-toggle="navbar-default"
           type="button"
-          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-200"
+          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-200"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
-          <span class="sr-only">Open main menu</span>
+          <span className="sr-only">Open main menu</span>
           <svg
-            class="w-12 h-12"
+            className="w-12 h-12"
             aria-hidden="true"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         </button>
         <div
-          class="hidden w-5/6 md:block text-2xl md:w-auto absolute md:static top-20 m-3"
+          className="hidden w-5/6 md:block text-2xl md:w-auto absolute md:static top-20 m-3"
           id="navbar-default"
         >
-          <ul class="font-medium md:text-2xl flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-200 dark:bg-gray-200">
+          <ul className="font-medium md:text-2xl flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-200 dark:bg-gray-200">
 
             <li>
               <Link to='/books'
-                class="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
+                className="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
               >
                 Books
               </Link>
             </li>
             <li>
               <Link to='/create'
-                class="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
+                className="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
                 >
                 Create
               </Link>
             </li>
             <li>
               <Link to='/about'
-                class="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
+                className="block text-md md:text-2xl py-2 pl-3 pr-4 text-sky-800  rounded hover:bg-cyan-600 hover:text-white"
                 >
                 About
               </Link>

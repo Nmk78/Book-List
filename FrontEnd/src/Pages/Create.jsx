@@ -66,10 +66,11 @@ const Create = () => {
           alt="man-reading-book"
           className="w-1/3 lg:w-full mx-auto object-cover"
         />
-        </a>
-        <p className="animate-pulse font-medium italic underline text-gray-400 text-xl ">
+                <p className="animate-pulse flex justify-center items-center text-2xl font-medium italic text-gray-400"> 
           Tap to see books
         </p>
+        </a>
+
       </div>
 
       <div>

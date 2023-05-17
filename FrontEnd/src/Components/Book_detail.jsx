@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate,useParams   } from "react-router-dom";
+import loading from "../assets/loading.gif";
+
 // import Delete from "./delete";
 import del from "../assets/del.svg";
 import edit from "../assets/edit.svg";
 import axios from "axios";
 
 const Book_detail = ({ books }) => {
-  let param = useParams().id;
-  // console.log(books);
 
-  
+  let param = useParams().id;
+
+
+  const navigate = useNavigate();
 
   const [book, setBook] = useState();
 
@@ -20,39 +23,35 @@ const Book_detail = ({ books }) => {
     }
   };
 
-
   useEffect(() => {
     filter_fn(books);
   }, [books]);
 
-  console.log(book);
-
-  // console.log(param);]
-
-  const URL = 'http://localhost:4000/books/'
+  console.log("Single Book", book);
 
 
-  const deleteBook = (param) => {
+  const URL = "http://localhost:4000/books/";
 
-    console.log(param);
-    axios.delete(`${URL}${param}`)
-      .then(response => {
+  const deleteBook = ( ) => {
+
+    axios
+      .delete(`${URL}${book._id}`)
+      .then((response) => {
         console.log(response.data);
+        console.log("Resp.data.message");
+        // navigate("/books", { replace: true });
+        navigate(-1)
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
+        console.log("Error.message");
       });
   };
-  
 
   return book ? (
     <>
-      <div
-        className="p-3 text-sm w-full h-full mx-auto md:w-3/4 lg:w-2/4 xl:w-1/4 flex justify-around m-3 md:scale-110 lg:scale-125"
-        key={book._id}
-      >
-        <div className="w-full h-4/6 flex items-center justify-center"         key={book._id}
->
+      <div className="p-3 text-sm w-full h-full mx-auto md:w-3/4 lg:w-2/4 xl:w-1/4 flex justify-around m-3 md:scale-110 lg:scale-125">
+        <div className="w-full h-4/6 flex items-center justify-center">
           <div
             className="
                   flex
@@ -138,29 +137,35 @@ const Book_detail = ({ books }) => {
 
             <div className="flex w-full justify-around">
               <div className="delBtn">
+                <a href={`/edit/${book._id}`}>
                 <button className=" p-1 text-sm px-2 ">
                   <img src={edit} className="w-7" alt="" />
                 </button>
+                </a>
               </div>
 
               <div className="delBtn ">
-                <button data-modal-target="popup-modal" className=" p-1 text-sm px-2 rounded-md"
-                onClick={deleteBook}
+                <a href="/books">
+                <button
+                  data-modal-target="popup-modal"
+                  className=" p-1 text-sm px-2 rounded-md"
+                  onClick={deleteBook}
                 >
                   <img src={del} className="w-8" alt="" />
                 </button>
+                </a>
               </div>
 
               {/* <Delete /> */}
             </div>
-
-
           </div>
         </div>
       </div>
     </>
   ) : (
-    <div>No such book</div>
+    <div className="flex justify-center items-center w-full h-full">
+      <img src={loading} alt="Loading" className="w-5 md:w-10 lg:w-20" />
+    </div>
   );
 };
 

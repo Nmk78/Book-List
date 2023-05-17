@@ -11,28 +11,33 @@ import Book from "./Pages/Book";
 import Create from "./Pages/Create";
 import About from "./Pages/About";
 import axios from "axios";
-// import Delete from "./Components/delete";
+import Edit_detail from "./Pages/Edit_detail";
+
 
 
 
 function App() {
 
+
   const [books, setBooks] = useState(null);
 
   useEffect(() => {
+
 
     const fetch_books = async () => {
       const response = await axios
         .get("http://localhost:4000/books")
         .then((response) => {
           setBooks(response.data);
-          // console.log(books);
+          console.log(books);
         });
+        
     };
 
     fetch_books();
-    // console.log(books)
-  }, []);
+
+      }, []);
+
 
   return (
     <>
@@ -43,9 +48,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/books" element={<Book books={books} />} />
             <Route path="/create" element={<Create />} />
+            <Route path="/edit/:id" element={<Edit_detail books={books} />} />
             <Route path="/about" element={<About />} />
             <Route path="/books/:id" element={<Book_detail books={books} />} />
-            {/* <Route path="/books/a" element={<Delete books={books} />} /> */}
           </Routes>
         </div>
         <Footer />
