@@ -21,14 +21,18 @@ const Book_Schema = new Schema(
                   type: String,
                   required : false
             },
-            got_by :{
+            review :{
                   type: String,
                   required : true
             },
-            // author :{
-            //       type: String,
-            //       required : true
-            // },
+            reviewer :{
+                  type: String,
+                  required : true
+            },
+            owner :{
+                  type: String,
+                  required : true
+            },
             book_number :{
                   type: Number,
                   required : true

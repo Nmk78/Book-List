@@ -32,9 +32,11 @@ const create_book = async (req, res) => {
     author,
     translated,
     translator,
-    got_by,
+    review,
+    reviewer,
     book_number,
     category,
+    owner
   } = req.body;
 
   try {
@@ -43,9 +45,11 @@ const create_book = async (req, res) => {
       author,
       translated,
       translator,
-      got_by,
+      review,
+      reviewer,
       book_number,
       category,
+      owner
     });
     res.status(200).json(book);
   } catch (err) {

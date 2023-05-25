@@ -8,13 +8,18 @@ const {
   update_a_book,
 } = require("../Controllers/book_controller");
 
+//Middleware
+const authCheck = require("../Middleware/authChecker");
+
 const router = express.Router();
 
-//Get one
-router.get('/:id', get_a_book);
+// router.use(authCheck);
 
-//Get all
-router.get("/", get_all_books);
+//Get one
+// router.get('/:id', get_a_book);
+
+// //Get all
+// router.get("/", get_all_books);
 
 //Post
 router.post("/create", create_book);

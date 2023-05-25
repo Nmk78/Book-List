@@ -4,6 +4,8 @@ const cors = require('cors')
 const express = require('express')
 const mongoose = require('mongoose')
 const route = require('./Routes/book_route')
+const public_route = require('./Routes/public_route')
+const user_route = require('./Routes/user_route')
 
 const app = express()
 
@@ -32,6 +34,8 @@ app.use((req, res, next) => {
 })
 
 app.use('/books',route)
+app.use('/books',public_route)
+app.use('/',user_route)
 
 mongoose.connect(process.env.Mongo_URI)
       .then(()=>{
