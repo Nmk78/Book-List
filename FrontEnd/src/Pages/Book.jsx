@@ -2,7 +2,7 @@ import React from "react";
 import girl_reading_a_book from "../assets/girl-reading-book.svg";
 
 const Book = ({ books }) => {
-  // console.log(books)
+  console.log(books)
   return (
     <>
       <div className="w-full flex justify-around grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 p-3">
@@ -10,7 +10,7 @@ const Book = ({ books }) => {
           books.map((book) => {
             return (
               <a
-                href={`/books/${book._id}`}
+                href={`/review/${book._id}`}
                 key={book._id}
                 className="flex flex-col justify-center items-center "
               >
@@ -44,7 +44,6 @@ const Book = ({ books }) => {
                     {book.author}
                   </div>
                 </div>
-                {/* <p className="animate-pulse font-bold italic underline text-orange-600 text-xl ">Tap for details</p> */}
               </a>
             );
           })}
@@ -55,7 +54,7 @@ const Book = ({ books }) => {
           <a href="/create" className="flex flex-col justify-center items-center " >
             <img src={girl_reading_a_book} alt="" />
             <p className="underline mx-auto italic text-orange-500 font-bold text-3xl ">
-              Create a new book?
+              Create a new review?
             </p>
           </a>
         </div>
