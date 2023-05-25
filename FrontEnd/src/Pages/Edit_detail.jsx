@@ -63,7 +63,7 @@ const EditDetail = ({ books }) => {
 
 
     try {
-      const url = `http://localhost:4000/books/${book._id}`;
+      const url = `https://book-review-blog-r249.onrender.com/books/${book._id}`;
       const config = {
         headers: {
           "Content-Type": "application/json",

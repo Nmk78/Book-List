@@ -28,7 +28,7 @@ const Book_detail = ({ books }) => {
 
   console.log("Single Book", book);
 
-  const URL = "http://localhost:4000/books/";
+  const URL = "https://book-review-blog-r249.onrender.com/books";
 
   const deleteBook = () => {
     fetch(`${URL}${book._id}`, {

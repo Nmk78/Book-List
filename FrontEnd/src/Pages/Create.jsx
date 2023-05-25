@@ -42,7 +42,7 @@ const Create = () => {
     };
 
     try {
-      const url = "http://localhost:4000/books/create";
+      const url = "https://book-review-blog-r249.onrender.com/books/create";
       const config = {
         headers: {
           "Content-Type": "application/json",
