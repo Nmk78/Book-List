@@ -112,7 +112,7 @@ const Nav = () => {
   const { user } = useContext(AuthContext);
   return (
     <>
-      <Navbar fluid>
+      <Navbar fluid className="sticky top-0 z-10 drop-shadow-lg">
         <Navbar>
           <Link
             to="/"
